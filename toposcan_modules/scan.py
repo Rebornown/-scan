@@ -11,7 +11,7 @@ from pyportscanner import pyscanner
 wifi = 'Intel(R) Wireless-AC 9462'
 
 # 模拟发包,向整个网络发包，如果有回应，则表示活跃的主机
-p = Ether(dst='ff:ff:ff:ff:ff:ff') / ARP(pdst='192.168.8.102/24')
+p = Ether(dst='ff:ff:ff:ff:ff:ff') / ARP(pdst='192.*.*.*/24')
 # ans表示收到的包的回复
 ans, unans = srp(p, iface=wifi, timeout=5)
 
@@ -54,7 +54,7 @@ def get_keys(d, value):
     return [k for k,v in d.items() if v == value]
 
 def type_scan():
-    conn = connect(host='192.168.8.16',port=33306,database='network',user='logaudit',password='xywa123$%^',charset='utf8')
+    conn = connect(host='192.*.*.*',port=33306,database='network',user='****',password='*****',charset='utf8')
     cs1 = conn.cursor() # 使用该连接并返回游标
     args = result_search2
     # print('args :',args)
@@ -93,7 +93,7 @@ def server_scan():
             else:
                 port_target = target.split(',')
 
-                conn = connect(host='192.168.8.16',port=33306,database='network',user='logaudit',password='xywa123$%^',charset='utf8')
+                conn = connect(host='192.*.*.*',port=33306,database='network',user='****',password='*',charset='utf8')
                 cs1 = conn.cursor() # 使用该连接并返回游标
                 args = port_target
                 var_num = len(args)
